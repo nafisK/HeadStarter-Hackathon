@@ -32,6 +32,8 @@ import java.util.Locale;
 
 public class CoursesDetailAdapter extends RecyclerView.Adapter<com.example.hackathon_test.Adapter.CoursesDetailAdapter.ViewHolder> {
 
+    public static final String TAG = "CoursesDetailAdapter";
+
     private Context context;
     private List<Assignments> assignments;
 
@@ -83,15 +85,15 @@ public class CoursesDetailAdapter extends RecyclerView.Adapter<com.example.hacka
 
             public void bind(Assignments assignment) throws ParseException {
 
-                Log.i("BIND", assignment.getName());
-
-
                 tvAssignmentName.setText(assignment.getName());
 
+//                Log.i(TAG, assignment.getName() + ", stat: " + stat);
+
+                // settings correct stat color
                 String stat = assignment.geStatus();
                 if (stat.equals("DUE")) {
                     tvStatus.setText(stat);
-                } else if (stat.equals("DONE")){
+                } else if (stat.equals("DONE")) {
                     tvStatus.setTextColor(Color.parseColor("#4CAF50"));
                     tvStatus.setText(stat);
 
