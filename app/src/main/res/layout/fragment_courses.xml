@@ -3,13 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/background"
+    android:orientation="vertical"
     tools:context=".Fragments.CoursesFragment">
+
+    <RelativeLayout
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/Courses"
+            android:textSize="30sp"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Courses" />
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCourses"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvTitle" />
 
 </RelativeLayout>
