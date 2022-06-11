@@ -10,7 +10,6 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.hackathon_test.Adapter.CoursesDetailAdapter;
 import com.example.hackathon_test.Adapter.ToDoAdapter;
 import com.example.hackathon_test.Models.Assignments;
@@ -18,7 +17,6 @@ import com.example.hackathon_test.Models.Course;
 import com.example.hackathon_test.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
-import com.parse.ParseFile;
 import com.parse.ParseQuery;
 
 import org.parceler.Parcels;
@@ -50,7 +48,6 @@ public class CourseDetailActivity extends AppCompatActivity {
         tvCourseId = findViewById(R.id.tvCourseId);
         tvProfessorName = findViewById(R.id.tvProfessorName);
         tvCourseDescription = findViewById(R.id.tvCourseDescription);
-        ivBanner = findViewById(R.id.ivBanner);
 
         setSupportActionBar(toolbar);
 
@@ -60,19 +57,14 @@ public class CourseDetailActivity extends AppCompatActivity {
         tvProfessorName.setText(course.getProfessor());
         tvCourseDescription.setText(course.getDescription());
 
-        ParseFile image = course.getBanner();
-        if (image != null) {
-            Glide.with(CourseDetailActivity.this).load(image.getUrl()).into(ivBanner);
-        }
-
-
 
         allAssignments = new ArrayList<>();
         adapter = new CoursesDetailAdapter(this, allAssignments);
         rvCoursesDetail.setAdapter(adapter);
         rvCoursesDetail.setLayoutManager(new LinearLayoutManager(this));
 
-        queryAssignments();
+        //queryAssignments();
+        queryAssignments(course);
 
     }
 
@@ -101,6 +93,32 @@ public class CourseDetailActivity extends AppCompatActivity {
         });
 
     }
+
+
+    private void queryAssignments(Course course) {
+        // filtering with date
+        Date date = new Date();
+        ParseQuery<Assignments> query = ParseQuery.getQuery(Assignments.class);
+        query.orderByDescending(Assignments.KEY_DUE);
+        query.include(Assignments.KEY_COURSE);
+        query.whereEqualTo(Assignments.KEY_COURSE, course);
+        query.findInBackground(new FindCallback<Assignments>() {
+            @Override
+            public void done(List<Assignments> assignments, ParseException e) {
+                // check for errors
+                if (e != null) {
+                    Log.e(TAG, "Issue with getting courses", e);
+                    return;
+                }
+
+
+                allAssignments.addAll(assignments);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+    }
+
 
 
 }

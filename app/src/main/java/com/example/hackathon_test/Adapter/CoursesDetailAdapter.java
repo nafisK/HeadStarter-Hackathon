@@ -91,13 +91,18 @@ public class CoursesDetailAdapter extends RecyclerView.Adapter<com.example.hacka
 
                 // settings correct stat color
                 String stat = assignment.geStatus();
+
                 if (stat.equals("DUE")) {
+                    tvStatus.setTextColor(Color.parseColor("#ff0000"));
                     tvStatus.setText(stat);
-                } else if (stat.equals("DONE")) {
+                }
+                if (stat.equals("DONE")) {
                     tvStatus.setTextColor(Color.parseColor("#4CAF50"));
                     tvStatus.setText(stat);
 
-                } else {
+                }
+
+                if (stat.equals("PAST DUE")) {
                     tvStatus.setTextColor(Color.parseColor("#F57C00"));
                     tvStatus.setText(stat);
                 }

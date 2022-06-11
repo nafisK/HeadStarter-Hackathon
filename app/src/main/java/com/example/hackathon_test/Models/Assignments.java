@@ -21,12 +21,15 @@ public class Assignments extends ParseObject {
     public static final String KEY_DESCRIPTION = "description";
     public static final String KEY_STATUS = "status";
     public static final String KEY_COURSE_ID = "courseId";
+    public static final String KEY_COURSE = "course";
 
     public String getName() { return getString(KEY_NAME); }
     public Date getDate() { return getDate(KEY_DUE); }
     public String getDescription() { return getString(KEY_DESCRIPTION); }
     public String geStatus() { return getString(KEY_STATUS); }
-    public String getCourseId() { return getString(KEY_COURSE_ID); }
+    public String getCourseId() { return getString(KEY_COURSE_ID);}
+    public Course getCourse() { return (Course) getParseObject(KEY_COURSE);
+    }
 
 
 }

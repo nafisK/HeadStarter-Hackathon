@@ -39,12 +39,12 @@
             android:id="@+id/tvMonth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/tvAssignmentName"
             android:layout_below="@+id/tvStatus"
-            android:text="Jan 8th"
             android:layout_marginTop="5dp"
-            android:textSize="12sp"
-            />
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="7dp"
+            android:text="Jan 8th"
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/tvCourseName"

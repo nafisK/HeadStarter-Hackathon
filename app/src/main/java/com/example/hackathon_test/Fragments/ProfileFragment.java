@@ -109,6 +109,7 @@ public class ProfileFragment extends Fragment {
         Date date = new Date();
         ParseQuery<Assignments> query = ParseQuery.getQuery(Assignments.class);
         query.orderByAscending(Assignments.KEY_DUE);
+        query.whereNotEqualTo(Assignments.KEY_STATUS, "DUE");
         query.findInBackground(new FindCallback<Assignments>() {
             @Override
             public void done(List<Assignments> assignments, ParseException e) {
@@ -136,6 +137,7 @@ public class ProfileFragment extends Fragment {
 
     private void queryCourses() {
         ParseQuery<Course> query = ParseQuery.getQuery(Course.class);
+        query.orderByAscending(Assignments.KEY_DUE);
         query.findInBackground(new FindCallback<Course>() {
             @Override
             public void done(List<Course> courses, ParseException e) {
