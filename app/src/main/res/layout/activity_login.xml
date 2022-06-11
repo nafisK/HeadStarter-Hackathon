@@ -24,19 +24,41 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="100dp">
 
-        <TextView
-            android:id="@+id/tvLogin"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/tvAppInfo"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="@string/app_name"
-            android:textSize="30sp" />
+
+            >
+
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/logo" />
+
+
+            <TextView
+                android:id="@+id/tvLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/ivLogo"
+                android:text="@string/app_name"
+                android:textSize="30sp" />
+
+        </RelativeLayout>
+
+
+
 
         <EditText
             android:id="@+id/etUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvLogin"
+            android:layout_below="@+id/tvAppInfo"
             android:hint="Username" />
 
         <EditText
@@ -52,6 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/etPassword"
+
             android:layout_alignParentStart="true"
             android:text="Sign Up" />
 

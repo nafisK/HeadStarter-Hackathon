@@ -5,11 +5,11 @@
       <map>
         <entry key="..\:/Users/nafis/Desktop/headstarter_hackathon/app/src/main/res/drawable/ic_profile.xml" value="0.3245" />
         <entry key="..\:/Users/nafis/Desktop/headstarter_hackathon/app/src/main/res/layout/activity_course_detail.xml" value="0.33" />
-        <entry key="..\:/Users/nafis/Desktop/headstarter_hackathon/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/Users/nafis/Desktop/headstarter_hackathon/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/nafis/Desktop/headstarter_hackathon/app/src/main/res/layout/activity_login.xml" value="0.5" />
+        <entry key="..\:/Users/nafis/Desktop/headstarter_hackathon/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/nafis/Desktop/headstarter_hackathon/app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
         <entry key="..\:/Users/nafis/Desktop/headstarter_hackathon/app/src/main/res/layout/fragment_courses.xml" value="0.33" />
-        <entry key="..\:/Users/nafis/Desktop/headstarter_hackathon/app/src/main/res/layout/fragment_profile.xml" value="0.67" />
+        <entry key="..\:/Users/nafis/Desktop/headstarter_hackathon/app/src/main/res/layout/fragment_profile.xml" value="0.5" />
         <entry key="..\:/Users/nafis/Desktop/headstarter_hackathon/app/src/main/res/layout/fragment_to_do.xml" value="0.33" />
         <entry key="..\:/Users/nafis/Desktop/headstarter_hackathon/app/src/main/res/layout/item_course.xml" value="0.5" />
         <entry key="..\:/Users/nafis/Desktop/headstarter_hackathon/app/src/main/res/layout/item_course_details.xml" value="0.33" />

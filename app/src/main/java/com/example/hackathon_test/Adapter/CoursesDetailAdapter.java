@@ -2,6 +2,7 @@ package com.example.hackathon_test.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -85,7 +87,22 @@ public class CoursesDetailAdapter extends RecyclerView.Adapter<com.example.hacka
 
 
                 tvAssignmentName.setText(assignment.getName());
-                tvStatus.setText(assignment.geStatus());
+
+                String stat = assignment.geStatus();
+                if (stat.equals("DUE")) {
+                    tvStatus.setText(stat);
+                } else if (stat.equals("DONE")){
+                    tvStatus.setTextColor(Color.parseColor("#4CAF50"));
+                    tvStatus.setText(stat);
+
+                } else {
+                    tvStatus.setTextColor(Color.parseColor("#F57C00"));
+                    tvStatus.setText(stat);
+                }
+
+
+
+
                 tvAssignmentDescription.setText(assignment.getDescription());
 
                 DateFormat dateFormat = new SimpleDateFormat(

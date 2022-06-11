@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.hackathon_test.Activities.MainActivity;
+import com.example.hackathon_test.Adapter.ProfileAdapter;
 import com.example.hackathon_test.Adapter.ToDoAdapter;
 import com.example.hackathon_test.Authentication.LoginActivity;
 import com.example.hackathon_test.Models.Assignments;
@@ -43,7 +44,7 @@ public class ProfileFragment extends Fragment {
     private List<Assignments> dueAssignments;
     private List<Course> allCourses;
     private RecyclerView rvToDo;
-    private ToDoAdapter adapter;
+    private ProfileAdapter adapter;
     private User user;
 
     ImageView ivImage;
@@ -86,7 +87,7 @@ public class ProfileFragment extends Fragment {
         dueAssignments = new ArrayList<>();
         allCourses = new ArrayList<Course>();
 
-        adapter = new ToDoAdapter(getContext(), allCourses, dueAssignments);
+        adapter = new ProfileAdapter(getContext(), allCourses, dueAssignments);
         rvToDo.setAdapter(adapter);
         rvToDo.setLayoutManager(new LinearLayoutManager(getContext()));
 

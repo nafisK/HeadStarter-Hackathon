@@ -2,50 +2,39 @@ package com.example.hackathon_test.Adapter;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Build;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.example.hackathon_test.Activities.CourseDetailActivity;
 import com.example.hackathon_test.Models.Assignments;
 import com.example.hackathon_test.Models.Course;
 import com.example.hackathon_test.R;
-import com.parse.ParseFile;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
 import java.util.Locale;
 
-public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
+
+public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHolder> {
 
     private Context context;
     private List<Course> courses;
     private List<Assignments> assignments;
-    private OnLongClickListener longClickListener;
 
     public interface OnLongClickListener {
         void onItemLongClicked(int position);
     }
 
-    public ToDoAdapter(Context context, List<Course> courses, List<Assignments> assignments, OnLongClickListener onLongClickListener) {
+    public ProfileAdapter(Context context, List<Course> courses, List<Assignments> assignments) {
         this.context = context;
         this.courses = courses;
         this.assignments = assignments;
-        this.longClickListener = onLongClickListener;
-
     }
 
 
@@ -122,15 +111,6 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
             DateFormat dateFormat = new SimpleDateFormat("MMM dd", Locale.US);
             String date_string = dateFormat.format(assignment.getDate());
             tvMonth.setText(date_string);
-
-            itemView.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    longClickListener.onItemLongClicked(getAdapterPosition());
-                    return true;
-                }
-            });
-
 
         }
     }
