@@ -86,9 +86,6 @@ public class CoursesDetailAdapter extends RecyclerView.Adapter<com.example.hacka
             public void bind(Assignments assignment) throws ParseException {
 
                 tvAssignmentName.setText(assignment.getName());
-
-//                Log.i(TAG, assignment.getName() + ", stat: " + stat);
-
                 // settings correct stat color
                 String stat = assignment.geStatus();
 
@@ -99,24 +96,19 @@ public class CoursesDetailAdapter extends RecyclerView.Adapter<com.example.hacka
                 if (stat.equals("DONE")) {
                     tvStatus.setTextColor(Color.parseColor("#4CAF50"));
                     tvStatus.setText(stat);
-
                 }
-
                 if (stat.equals("PAST DUE")) {
                     tvStatus.setTextColor(Color.parseColor("#F57C00"));
                     tvStatus.setText(stat);
                 }
 
-
-
-
                 tvAssignmentDescription.setText(assignment.getDescription());
 
-                DateFormat dateFormat = new SimpleDateFormat(
-                        "MMM dd", Locale.US);
+                DateFormat dateFormat = new SimpleDateFormat("MMM dd", Locale.US);
                 String date_string = dateFormat.format(assignment.getDate());
-
                 tvMonth.setText(date_string);
+
+
 
             }
         }
