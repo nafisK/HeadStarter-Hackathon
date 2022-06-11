@@ -10,6 +10,7 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.hackathon_test.Adapter.CoursesDetailAdapter;
 import com.example.hackathon_test.Adapter.ToDoAdapter;
 import com.example.hackathon_test.Models.Assignments;
@@ -17,6 +18,7 @@ import com.example.hackathon_test.Models.Course;
 import com.example.hackathon_test.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseQuery;
 
 import org.parceler.Parcels;
@@ -48,6 +50,7 @@ public class CourseDetailActivity extends AppCompatActivity {
         tvCourseId = findViewById(R.id.tvCourseId);
         tvProfessorName = findViewById(R.id.tvProfessorName);
         tvCourseDescription = findViewById(R.id.tvCourseDescription);
+        ivBanner = findViewById(R.id.ivBanner);
 
         setSupportActionBar(toolbar);
 
@@ -56,6 +59,12 @@ public class CourseDetailActivity extends AppCompatActivity {
         tvCourseId.setText(course.getId());
         tvProfessorName.setText(course.getProfessor());
         tvCourseDescription.setText(course.getDescription());
+
+        ParseFile image = course.getBanner();
+        if (image != null) {
+            Glide.with(CourseDetailActivity.this).load(image.getUrl()).into(ivBanner);
+        }
+
 
 
         allAssignments = new ArrayList<>();

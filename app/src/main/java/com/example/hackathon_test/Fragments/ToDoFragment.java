@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.service.voice.VoiceInteractionSession;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -85,25 +87,22 @@ public class ToDoFragment extends Fragment {
     private void markAssignmentComplete(int position) {
         // Retrieve the object by id
         ParseQuery<Assignments> query = ParseQuery.getQuery(Assignments.class);
+        Assignments assignment = dueAssignments.get(position);
+        assignment.put(Assignments.KEY_STATUS, "DONE");
 
-        query.getInBackground(dueAssignments.get(position).getCourseId(), (object, e) -> {
-            if (e == null) {
-                // Deletes the fetched ParseObject from the database
-                object.deleteInBackground(e2 -> {
-                    if(e2==null){
-                        Toast.makeText(getContext(), "Delete Successful", Toast.LENGTH_SHORT).show();
-                    }else{
-                        //Something went wrong while deleting the Object
-                        Toast.makeText(getContext(), "Error: " + e2.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }else{
-                //Something went wrong while retrieving the Object
-                Toast.makeText(getContext(), "Error: "+e.getMessage(), Toast.LENGTH_SHORT).show();
+        query.findInBackground(new FindCallback<Assignments>() {
+            @Override
+            public void done(List<Assignments> objects, ParseException e) {
+                if (e == null) {
+                    Log.i(TAG, "Database Updated to DONE");
+                }else{
+                    // Something went wrong while saving
+                    Log.i(TAG, "Error with updating database" + e.getMessage());
+                }
             }
         });
-    }
 
+    }
 
     // gets all the assignments
     private void queryDueAssignments() {
