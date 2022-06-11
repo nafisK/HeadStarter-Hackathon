@@ -10,7 +10,7 @@
 <!--    <color name="purple_700">#DCB7A1</color>-->
     <color name="purple_700">#795548</color>
 
-    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_200">#795548</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFF</color>
