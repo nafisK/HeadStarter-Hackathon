@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.CourseDetailActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlProfileInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:id="@+id/ivBanner"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/biology" />
+
+        <TextView
+            android:id="@+id/tvCourseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivBanner"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Course Name"
+            android:textColor="#1E1E1E"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvCourseId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvCourseName"
+            android:layout_centerHorizontal="true"
+            android:text="CSC 1234556"
+            android:textColor="#1E1E1E"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvProfessorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvCourseId"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Ahmet YUKKK"
+            android:textColor="#1E1E1E"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvCourseDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvProfessorName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Descriptions Descriptions Descriptions Descriptions Descriptions Descriptions Descriptions Descriptions Descriptions Descriptions Descriptions Descriptions Descriptions Descriptions Descriptions Descriptions Descriptions ." />
+
+    </RelativeLayout>
+
+
+    <View
+    android:background="?android:attr/listDivider"
+    android:id="@+id/divider"
+    android:layout_below="@+id/rlProfileInfo"
+    android:layout_height="2dp"
+    android:layout_width="match_parent" />
+
+    <RelativeLayout
+    android:background="@color/background"
+    android:id="@+id/rlAssignmentsSubmitted"
+    android:layout_below="@+id/divider"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCoursesDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+
+
